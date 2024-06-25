@@ -15,12 +15,39 @@ const activeClass = "bg-base-300"; // For primary color replace with `active` cl
             class="py-3 text-base"
             href="mailto:contact.manuelernestog@gmail.com"
             target="_blank"
-            referrerpolicy="no-referrer-when-downgrade">Contact</a
-        >
+            referrerpolicy="no-referrer-when-downgrade">Contact</a>
     </li>
 </ul>
 
 <script define:vars={{ sideBarActiveItemID: sideBarActiveItemID, activeClass: activeClass }}>
+// Highlight the active menu item based on the ID passed from props
 const activeItemElem = document.getElementById(sideBarActiveItemID);
-activeItemElem && activeItemElem.classList.add(activeClass);
+if (activeItemElem) {
+    activeItemElem.classList.add(activeClass);
+}
+
+// Select all links except mailto links and add a click event listener to each
+const links = document.querySelectorAll('a[href]:not([href^="mailto:"])');
+links.forEach(link => {
+    link.addEventListener('click', (event) => {
+        // Store the URL of the clicked link in localStorage
+        const target = event.currentTarget;
+        const href = target.getAttribute('href');
+        localStorage.setItem('navigateTo', href);
+    });
+});
+
+// Check if there is a URL to navigate to in localStorage
+const navigateTo = localStorage.getItem('navigateTo');
+if (navigateTo) {
+    // Remove the URL from localStorage to prevent infinite loop
+    localStorage.removeItem('navigateTo');
+    // If the current URL is not the same as the stored URL, navigate to the stored URL
+    if (window.location.href !== navigateTo) {
+        window.location.href = navigateTo;
+    } else {
+        // If the current URL is the same, force reload the page from the server
+        window.location.reload(true);
+    }
+}
 </script>

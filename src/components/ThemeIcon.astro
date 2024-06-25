@@ -1,0 +1,46 @@
+---
+---
+    <div  style="float: inline-end; position: sticky; margin-right: 100px; margin-bottom: 0;">
+        <select data-choose-theme class="btn btn-accent btn-primary btn-sm rounded-full transition-transform transform hover:scale-105 shadow-lg" 
+        style="float: left; position: fixed; ">
+        <option value="paste">Default</option>
+        <option value="dark">Dark</option>
+        <option value="cupcake">Cupcake</option>
+        <option value="luxury">Luxury</option>
+        <option value="synthwave">Synthwave</option>
+        <option value="forest">Forest</option>
+        <option value="coffee">Coffee</option>
+        </select>
+    </div>
+
+<script is:inline>
+    // ☝️ This script prevents the FART effect.
+    if (localStorage.getItem("theme") === null) {
+      document.documentElement.setAttribute("data-theme", "light");
+    } else {
+      document.documentElement.setAttribute(
+        "data-theme",
+        localStorage.getItem("theme")
+      );
+    }
+    // "theme" LocalStorage value is set by the package to remember user preference.
+    // The value is checked and applied before rendering anything.
+  </script>
+  <script>
+    import { themeChange } from 'theme-change';
+    themeChange();
+    // 👆 you could import the CDN directly instead of these two lines
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const selectThemeElement = document.querySelector('[data-choose-theme]');
+      if (selectThemeElement) {
+        selectThemeElement.addEventListener('change', function(event) {
+          const target = event.target as HTMLSelectElement;
+          const theme = target.value;
+          localStorage.setItem('theme', theme);
+          document.documentElement.setAttribute('data-theme', theme);
+        });
+      }
+    });
+  </script>
+ 

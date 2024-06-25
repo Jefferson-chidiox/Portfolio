@@ -2,7 +2,9 @@
 import SideBarFooter from "./SideBarFooter.astro";
 import { Image } from "astro:assets";
 import SideBarMenu from "./SideBarMenu.astro";
+
 const { sideBarActiveItemID } = Astro.props;
+
 ---
 
 <div class="drawer-side z-40">
@@ -17,7 +19,21 @@ const { sideBarActiveItemID } = Astro.props;
         </div>
       </a>
     </div>
+    <!-- <div class="md:hidden lg:block">
+      <select data-choose-theme class="btn btn-accent btn-primary" 
+      style=" float: left;">
+      <option value="paste">Default</option>
+      <option value="dark">Dark</option>
+      <option value="cupcake">cupcake</option>
+      <option value="luxury">Luxury</option>
+      <option value="synthwave">Synthwave</option>
+      <option value="forest">Forest</option>
+      <option value="coffee">Coffee</option>
+
+      </select>
+    </div> -->
     <SideBarMenu sideBarActiveItemID={sideBarActiveItemID} />
     <SideBarFooter />
+    
   </aside>
 </div>

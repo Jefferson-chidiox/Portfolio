@@ -23,6 +23,36 @@ dayjs.extend(localizedFormat);
 const displayDate = dayjs(updatedDate).format("ll");
 import { Image } from "astro:assets";
 ---
+<script is:inline>
+  // ☝️ This script prevents the FART effect.
+  if (localStorage.getItem("theme") === null) {
+    document.documentElement.setAttribute("data-theme", "light");
+  } else {
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.getItem("theme")
+    );
+  }
+  // "theme" LocalStorage value is set by the package to remember user preference.
+  // The value is checked and applied before rendering anything.
+</script>
+<script>
+  import { themeChange } from 'theme-change';
+  themeChange();
+  // 👆 you could import the CDN directly instead of these two lines
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const selectThemeElement = document.querySelector('[data-choose-theme]');
+    if (selectThemeElement) {
+      selectThemeElement.addEventListener('change', function(event) {
+        const target = event.target as HTMLSelectElement;
+        const theme = target.value;
+        localStorage.setItem('theme', theme);
+        document.documentElement.setAttribute('data-theme', theme);
+      });
+    }
+  });
+</script>
 
 <BaseLayout title={title} description={description} image={heroImage}>
   <main class="md:flex md:justify-center">

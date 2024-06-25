@@ -4,8 +4,11 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import SideBar from "../components/SideBar.astro";
 import { ViewTransitions } from "astro:transitions";
+import ThemeIcon from '../components/ThemeIcon.astro';
+
 
 import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from "../config";
+
 
 const {
   image,
@@ -18,8 +21,10 @@ const {
 ---
 
 <!doctype html>
-<html lang="en" data-theme="lofi">
+<html lang="en" data-choose-theme>
   <head>
+    
+ 
     <BaseHead title={title} description={description} image={image} , ogType={ogType} />
     {TRANSITION_API && <ViewTransitions />}
   </head>
@@ -30,6 +35,8 @@ const {
         <Header title={SITE_TITLE} />
         <div class="md:flex md:justify-center">
           <main class="p-6 pt-10 lg:max-w-[900px] max-w-[100vw]">
+            <ThemeIcon />
+                        
             <slot />
           </main>
         </div>

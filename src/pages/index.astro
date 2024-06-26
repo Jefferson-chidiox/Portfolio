@@ -7,13 +7,64 @@ import createSlug from "../lib/createSlug"
 const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const last_posts = posts.slice(0, 3);
----
 
+---
+<script>
+var words = document.querySelectorAll(".word");
+words.forEach(function (word) {
+    var letters = word.textContent.split("");
+    word.textContent = "";
+    letters.forEach(function (letter) {
+        var span = document.createElement("span");
+        span.textContent = letter;
+        span.className = "letter";
+        word.append(span);
+    });
+});
+var currentWordIndex = 0;
+var maxWordIndex = words.length - 1;
+words[currentWordIndex].style.opacity = "1";
+var rotateText = function () {
+    var currentWord = words[currentWordIndex];
+    var nextWord = currentWordIndex === maxWordIndex ? words[0] : words[currentWordIndex + 1];
+    // rotate out letters of current word
+    Array.from(currentWord.children).forEach(function (letter, i) {
+        setTimeout(function () {
+            letter.className = "letter out";
+        }, i * 80);
+    });
+    // reveal and rotate in letters of next word
+    nextWord.style.opacity = "1";
+    Array.from(nextWord.children).forEach(function (letter, i) {
+        letter.className = "letter behind";
+        setTimeout(function () {
+            letter.className = "letter in";
+        }, 340 + i * 80);
+    });
+    currentWordIndex =
+        currentWordIndex === maxWordIndex ? 0 : currentWordIndex + 1;
+};
+rotateText();
+setInterval(rotateText, 4000);
+
+</script>
 <BaseLayout sideBarActiveItemID="home">
   <div class="pb-12 mt-5">
-    <div class="text-xl py-1">Hey there 👋</div>
-    <div class="text-5xl font-bold">I'm Jefferson Nwokoro</div>
-    <div class="text-3xl py-3 font-bold">Software Engineer and Entrepreneur</div>
+    <div class="text-xl py-1 font-bold">Hey there👋I'm Jefferson Nwokoro</div>
+    <div class="text-5xl font-bold"></div>
+    <div class="rotating-text text-5xl">
+      <p>Do you need help with</p>
+      <p>
+        <span class="word alizarin py-1">HTML and CSS</span>
+        <span class="word wisteria py-1">WORDPRESS</span>
+        <span class="word peter-river py-1">MAGENTO</span>
+        <span class="word emerald py-1">DRUPAL</span>
+        <span class="word sun-lower py-1">EMAIL</span>
+         <span class="word alizarin py-1">Typo3</span>
+        
+      </p>
+    </div>
+    <div class="text-1xl py-3 font-bold">Software Engineer and Entrepreneur</div>
     <div class="py-2">
       <text class="text-lg">
         This is <b>Astrofy</b> a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS.

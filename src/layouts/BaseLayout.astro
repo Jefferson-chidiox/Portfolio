@@ -21,7 +21,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en" data-choose-theme>
+<html lang="en">
   <head>
     
  
@@ -33,9 +33,10 @@ const {
       <input id="my-drawer" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content bg-base-100">
         <Header title={SITE_TITLE} />
+        <ThemeIcon />
+
         <div class="md:flex md:justify-center">
           <main class="p-6 pt-10 lg:max-w-[900px] max-w-[100vw]">
-            <ThemeIcon />
                         
             <slot />
           </main>

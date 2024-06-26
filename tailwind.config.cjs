@@ -6,19 +6,7 @@ module.exports = {
 	},
 	plugins: [require("@tailwindcss/typography"),require("daisyui")],
 	daisyui: {
-		themes:["light",
-			"dark",
-			"cupcake",
-			"bumblebee",
-			"emerald",
-			"corporate",
-			"synthwave",
-			"pastel",
-			"cyberpunk",
-			"valentine",
-			"luxury",
-			"coffee",
-			"forest"], // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
+		themes:true, // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
 		darkTheme: "dark", // name of one of the included themes for dark mode
 		base: true, // applies background color and foreground color for root element by default
 		styled: true, // include daisyUI colors and design decisions for all components

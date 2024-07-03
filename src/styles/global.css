@@ -97,8 +97,8 @@
     width: 100%;
     float: none;
   }
-  .card-body{
-    width: 70%;
+  .card{
+    width: 50%;
   }
 }
  

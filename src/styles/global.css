@@ -60,3 +60,48 @@
 .sun-flower {
   color: #f1c40f;
 }
+
+.wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+/* DEMO-SPECIFIC STYLES */
+ type {
+  color: palevioletred;
+  font-family: monospace;
+  border-right: .15em solid #fff; 
+  white-space: nowrap; 
+  margin: 0 auto; 
+  letter-spacing: .15em;
+  animation: blink .5s step-end           infinite alternate;;
+}
+
+/* The typewriter cursor effect */
+@keyframes blink {
+  50% { border-color: transparent}
+}
+
+.custom-window {
+  width: 50%;
+  clear: right;
+  float: right;
+  left: 15%;
+}
+
+@media (max-width: 640px){
+  .custom-window{
+
+    width: 100%;
+    float: none;
+  }
+}
+ 
+
+
+body.no-scroll {
+  overflow: hidden;
+}
+

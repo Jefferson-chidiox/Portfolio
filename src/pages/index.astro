@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
-import createSlug from "../lib/createSlug"
+import createSlug from "../lib/createSlug";
 
 const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
@@ -48,9 +48,10 @@ rotateText();
 setInterval(rotateText, 4000);
 
 </script>
+<script src="../Typescript/script.ts"></script>
 <BaseLayout sideBarActiveItemID="home">
-  <div class="pb-12 mt-5">
-    <div class="text-xl py-1 font-bold">Hey there👋I'm Jefferson Nwokoro</div>
+  <div class="container-above pb-12 mt-5">
+    <div class="text-1xl py-3 font-bold"><i>Hey there👋I'm Jefferson Nwokoro<i></i></div>
     <div class="text-5xl font-bold"></div>
     <div class="rotating-text text-5xl">
       <p>Do you need help with</p>
@@ -64,7 +65,7 @@ setInterval(rotateText, 4000);
         
       </p>
     </div>
-    <div class="text-1xl py-3 font-bold">Software Engineer and Entrepreneur</div>
+    <div class="text-1xl py-3 font-bold"><i>Software Engineer and Entrepreneur</i></div>
     <div class="py-2">
       <text class="text-lg">
         This is <b>Astrofy</b> a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS.
@@ -80,9 +81,38 @@ setInterval(rotateText, 4000);
     </div>
   </div>
 
+  <div class="chat chat-end custom-window">
+    <div class=" chat-bubble justify-center">
+      <h1 class="txt-type text-2xl justify-center" data-wait="1000" data-words='["Hey! I am Jefferson; Explorer, writer, designer and of course web developer ........", "And this is my Portfolio."]'></h1>
+    </div>
+  </div>
+</br>
+</br>
+
+
+  <div class="card glass w-96">
+    <figure>
+      <div style="width:100%;height:0;padding-bottom:56%;position:relative;">
+        <iframe src="https://giphy.com/embed/2C6v4QD5d3YOO4YhID" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen>
+        </iframe>
+      </div>
+      <p>
+        <a href="https://giphy.com/gifs/krepling-website-build-building-2C6v4QD5d3YOO4YhID"></a>
+      </p>
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title justify-end" style="text-align: center;">Let me build your dream website for you</h2>
+      <div class="card-actions justify-end">
+      </div>
+    </div>
+  </div>
+
+</br>
+</br>
   <div>
     <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
   </div>
+
 
   <HorizontalCard
     title="Demo Project 1"

@@ -97,6 +97,9 @@
     width: 100%;
     float: none;
   }
+  .card-body{
+    width: 70%;
+  }
 }
  
 

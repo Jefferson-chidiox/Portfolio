@@ -239,8 +239,8 @@ svg.radial-progress text {
 /* pricing styles */
 /* Variables */
 :root {
-  --red: #dc2430;
-  --purple: #7b4397;
+  --red: #BAC176;
+  --purple: #dc2430;
 }
 
 /* Card */
@@ -295,7 +295,7 @@ ul {
   text-align: left;
   /* background: #fff; */
   width: 70%;
-  color: var(--red);
+  /* color: var(--red); */
   border-radius: 0 6px 6px 0;
   padding: 40px 40px;
 }
@@ -317,7 +317,7 @@ ul {
 .button {
   text-decoration: none;
   color: #fff;
-  background: var(--red);
+  background: #dc2430;
   padding: 20px 80px;
   border-radius: 100px;
   transition: all 500ms ease;

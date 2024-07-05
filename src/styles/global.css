@@ -326,3 +326,19 @@ ul {
 .button:hover {
   background: var(--purple);
 }
+
+@media (max-width: 780px){
+  .pricing-card{
+
+    width: 100%;
+    float: none;
+  }
+  .card-left, .card-right{
+    width: 70%;
+    justify-self: center;
+  }
+  .button{
+    width: 10%;
+    justify-self: center;
+  }
+}

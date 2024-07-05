@@ -37,17 +37,17 @@ links.forEach(link => {
     });
 });
 
-// Check if there is a URL to navigate to in localStorage
-const navigateTo = localStorage.getItem('navigateTo');
-if (navigateTo) {
-    // Remove the URL from localStorage to prevent infinite loop
-    localStorage.removeItem('navigateTo');
-    // If the current URL is not the same as the stored URL, navigate to the stored URL
-    if (window.location.href !== navigateTo) {
-        window.location.href = navigateTo;
-    } else {
-        // If the current URL is the same, force reload the page from the server
-        window.location.reload(true);
-    }
-}
+// // Check if there is a URL to navigate to in localStorage
+// const navigateTo = localStorage.getItem('navigateTo');
+// if (navigateTo) {
+//     // Remove the URL from localStorage to prevent infinite loop
+//     localStorage.removeItem('navigateTo');
+//     // If the current URL is not the same as the stored URL, navigate to the stored URL
+//     if (window.location.href !== navigateTo) {
+//         window.location.href = navigateTo;
+//     } else {
+//         // If the current URL is the same, force reload the page from the server
+//         window.location.reload(false);
+//     }
+// }
 </script>

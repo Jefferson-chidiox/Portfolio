@@ -83,9 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
     dt_counterFlip();
 });
 
-
-//bar graph functionality
-    
+// Bar graph functionality
 document.addEventListener('DOMContentLoaded', function() {
     function skillSet() {
       // Iterate over each element with the class bar-info
@@ -94,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const total = barInfo.dataset.total;
         barInfo.style.width = total + '%';
       });
-      
+  
       // Iterate over each element with the class percent
       // and implement a counter animation for each .percent element.
       document.querySelectorAll('.percent').forEach(function(percentElement) {
@@ -102,24 +100,42 @@ document.addEventListener('DOMContentLoaded', function() {
         let startValue = 10;
         const duration = 3000;
         const startTime = performance.now();
-        
+  
         function animateCounter(currentTime) {
           const elapsedTime = currentTime - startTime;
           const progress = Math.min(elapsedTime / duration, 1);
           const counterValue = Math.ceil(startValue + progress * (endValue - startValue));
           percentElement.textContent = counterValue + '%';
-          
+  
           if (progress < 1) {
             requestAnimationFrame(animateCounter);
           }
         }
-        
+  
         requestAnimationFrame(animateCounter);
       });
     }
-    
-    // Invoke our skillSet function inside a setTimeout,
-    // to create a short delay before the animation begins.
-    setTimeout(skillSet, 1000);
+  
+    // Set up Intersection Observer
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1 // Trigger when 10% of the target is visible
+    };
+  
+    const observer = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          skillSet();
+          observer.disconnect(); // Stop observing after animation starts
+        }
+      });
+    }, observerOptions);
+  
+    // Observe the first .bar-info element to trigger the skillSet function
+    const targetElement = document.querySelector('.bar-info');
+    if (targetElement) {
+      observer.observe(targetElement);
+    }
   });
   

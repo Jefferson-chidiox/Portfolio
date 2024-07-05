@@ -147,3 +147,6 @@ function init() {
   // Init Typewriter
   new Typewriter(txtElement, words, wait);
 }
+
+// counter functionality
+

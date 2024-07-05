@@ -9,46 +9,8 @@ const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueO
 const last_posts = posts.slice(0, 3);
 
 ---
-<script>
-var words = document.querySelectorAll(".word");
-words.forEach(function (word) {
-    var letters = word.textContent.split("");
-    word.textContent = "";
-    letters.forEach(function (letter) {
-        var span = document.createElement("span");
-        span.textContent = letter;
-        span.className = "letter";
-        word.append(span);
-    });
-});
-var currentWordIndex = 0;
-var maxWordIndex = words.length - 1;
-words[currentWordIndex].style.opacity = "1";
-var rotateText = function () {
-    var currentWord = words[currentWordIndex];
-    var nextWord = currentWordIndex === maxWordIndex ? words[0] : words[currentWordIndex + 1];
-    // rotate out letters of current word
-    Array.from(currentWord.children).forEach(function (letter, i) {
-        setTimeout(function () {
-            letter.className = "letter out";
-        }, i * 80);
-    });
-    // reveal and rotate in letters of next word
-    nextWord.style.opacity = "1";
-    Array.from(nextWord.children).forEach(function (letter, i) {
-        letter.className = "letter behind";
-        setTimeout(function () {
-            letter.className = "letter in";
-        }, 340 + i * 80);
-    });
-    currentWordIndex =
-        currentWordIndex === maxWordIndex ? 0 : currentWordIndex + 1;
-};
-rotateText();
-setInterval(rotateText, 4000);
 
-</script>
-<script src="../Typescript/script.ts"></script>
+
 <BaseLayout sideBarActiveItemID="home">
   <div class="container-above pb-12 mt-5">
     <div class="text-1xl py-3 font-bold"><i>Hey there👋I'm Jefferson Nwokoro<i></i></div>
@@ -93,7 +55,7 @@ setInterval(rotateText, 4000);
   <div class="card glass w-96">
     <figure>
       <div style="width:100%;height:0;padding-bottom:56%;position:relative;">
-        <iframe src="https://giphy.com/embed/2C6v4QD5d3YOO4YhID" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen>
+        <iframe src="https://giphy.com/embed/2C6v4QD5d3YOO4YhID" width="100%" height="100%" style="position:absolute" 'frameBorder'="0" class="giphy-embed" 'allowFullScreen'>
         </iframe>
       </div>
       <p>
@@ -109,6 +71,90 @@ setInterval(rotateText, 4000);
 
 </br>
 </br>
+<section class="module stats flex flex-col justify-center items-center" id="counter">
+  <div class="container mx-auto flex flex-col justify-center items-center">
+    <div class="row w-full">
+      <div class="col-sm-12 m-auto font-bold text-3xl text-center">
+        <h1>This Website's Performance Stats</h1>
+      </div>
+    </div>
+    
+    <div class="row flex flex-col sm:flex-row justify-center w-full">
+      <div class="col-sm-4 flex justify-center w-full mb-4 sm:mb-0">
+        <div class="counter pt-3 text-center">
+          <div class="number"><span class="count">3</span>mb</div>
+          <div class="title mx-auto">Page Size</div>
+          <p>Optimal performance</p>
+        </div>
+      </div>
+      <div class="col-sm-4 flex justify-center w-full mb-4 sm:mb-0">
+        <div class="counter pt-3 text-center">
+          <div class="number"><span class="count">22</span></div>
+          <div class="title mx-auto">Page Requests</div>
+          <p>Improved Speed</p>  
+        </div>
+      </div>
+      <div class="col-sm-4 flex justify-center w-full">
+        <div class="counter pt-3 text-center">
+          <div class="number"><span class="count">2</span>sec</div>
+          <div class="title mx-auto">Page Speed</div>
+          <p>Insanely Short Amount of time before page becomes interactive</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br><br>
+
+<div class="flex justify-center items-center text-center">
+  <button class="btn btn-accent"><a href="https://website.grader.com/tests/Jefferson.openchoicehub.com?__hstc=20629287.c1a21421ad13d01fe31aee546e17e1df.1720123439989.1720123439989.1720123439989.1&__hssc=20629287.3.1720123439990&__hsfp=3517338624&hubs_content=www.hubspot.com%2F&hubs_content-cta=Website+Grader&_conv_v=vi%3A1*sc%3A14*cs%3A1720123460*fs%3A1696186699*pv%3A36*seg%3A%7B10031564.1-10034364.1-10034366.1%7D*exp%3A%7B100330256.%7Bv.1003131869-g.%7B%7D%7D-100341862.%7Bv.1003162478-g.%7B%7D%7D-100342007.%7Bv.1003162876-g.%7B%7D%7D%7D*ps%3A1712087189&_conv_s=si%3A14*sh%3A1720123459515-0.029143085429142346*pv%3A1">Test it out for yourself</a></button>
+</div>
+
+<br><br>
+
+<section class="flex flex-col items-center justify-center space-y-8 sm:space-y-0 sm:space-x-8 sm:flex-row">
+  <div class='bar-wrapper text-2xl text-primary'>
+    <div class='bar text-accent-content'>
+      <div class='bar-info PERFORMANCE' data-total='100'>
+        PERFORMANCE
+        <span class='percent'>100</span>
+      </div>
+    </div>
+
+    <div class='bar'>
+      <div class='bar-info css text-accent-content' data-total='100'>
+        SEO
+        <span class='percent'>100</span>
+      </div>
+    </div>
+
+    <div class='bar'>
+      <div class='bar-info js text-accent-content' data-total='80'>
+        MOBILE
+        <span class='percent'>80</span>
+      </div>
+    </div>
+    
+    <div class='bar'>
+      <div class='bar-info ps text-accent-content' data-total='100'>
+        SECURITY
+        <span class='percent'>100</span>
+      </div>
+    </div>
+  </div>
+  <div class="svg-container flex justify-center text-center">
+    <svg class="radial-progress bg-neutral glass w-32 h-32" data-countervalue="90" viewBox="0 0 80 80">
+      <circle class="bar-static" cx="40" cy="40" r="35"></circle>
+      <circle class="bar--animated" cx="40" cy="40" r="35" style="stroke-dashoffset: 217.8;"></circle>
+      <text class="countervalue start" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">90%</text>
+    </svg>
+  </div>
+  <h3>Total Score</h3>
+</section>
+
+
+
   <div>
     <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
   </div>

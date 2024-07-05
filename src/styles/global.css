@@ -1,6 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+
 .time-line-container > div:last-child .education__time > .education__line {
   display: none;
 }
+
+/* Header typewriter animation */
 .rotating-text {
   font-family: Lato, sans-serif;
   font-weight: 600;
@@ -99,6 +104,7 @@
   }
   .card{
     width: 90%;
+    justify-self: center;
   }
 }
  
@@ -108,3 +114,124 @@ body.no-scroll {
   overflow: hidden;
 }
 
+/* counter stats */
+.stats {
+  padding: 10px 0 10px 0;
+ .counter {
+   .number {
+     color: #BAC176;
+     font-size: 7.8125rem;  
+     font-weight: 300;
+   }
+   .title {
+     max-width: 200px;
+     font-size: 1.25rem;
+     line-height: 1.2;
+     font-weight: bold;
+   };
+ }
+}
+
+svg.radial-progress {
+  height: auto;
+  max-width: 240px;
+  padding: 0;
+  transform: rotate(-90deg);
+  width: 100%;
+  /* background-image: linear-gradient(-225deg, #0000 0%, #0000 50%, #0000 100%); */
+  border-radius: 50%;
+}
+
+svg.radial-progress circle {
+  fill: transparent;
+  stroke: #fff;
+}
+
+svg.radial-progress circle.bar-static {
+  stroke: #fafafa !important;
+}
+
+svg.radial-progress circle.bar--animated {
+  stroke-dasharray: 199.6; /* Adjust according to the circle's circumference */
+  stroke: #ffffff;
+  stroke-dashoffset: 282.6;
+  stroke-width: 4px;
+  stroke-linecap: round;
+  animation: progress 2s ease-out forwards;
+}
+
+svg.radial-progress text {
+  fill: #fafafa;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 700;
+  text-anchor: middle;
+  text-shadow: 0 0 5px #0000007a;
+}
+
+
+
+@keyframes progress {
+  from {
+    stroke-dashoffset: 282.6;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* bar graph */
+.bar-wrapper {
+  margin: 0 auto;
+  width: 90%;
+  margin-top: 15px;
+}
+
+.bar {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.9rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.bar-info {
+  border-radius: 5px;
+  height: 100%;
+  background: #fd7473; /* Base color */
+  width: 10%;
+  transition: width 3.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* color: white; Ensure text is visible */
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Reduced opacity */
+.bar-info.performance {
+  background: linear-gradient(rgba(253, 116, 115, 0.8), rgba(252, 104, 142, 0.8)), rgba(253, 116, 115, 0.8);
+}
+
+.bar-info.css {
+  background: linear-gradient(rgba(254, 201, 81, 0.8), rgba(252, 173, 68, 0.8)), rgba(254, 201, 81, 0.8);
+}
+
+.bar-info.js {
+  background: linear-gradient(rgba(71, 184, 224, 0.8), rgba(40, 190, 250, 0.8)), rgba(71, 184, 224, 0.8);
+}
+
+.bar-info.ps {
+  background: linear-gradient(rgba(159, 104, 208, 0.8), rgba(187, 104, 208, 0.8)), rgba(159, 104, 208, 0.8);
+}
+
+.percent {
+  margin-left: auto;
+  margin-right: 10px;
+}

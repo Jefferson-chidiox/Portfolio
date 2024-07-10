@@ -138,7 +138,6 @@ svg.radial-progress {
   padding: 0;
   transform: rotate(-90deg);
   width: 100%;
-  /* background-image: linear-gradient(-225deg, #0000 0%, #0000 50%, #0000 100%); */
   border-radius: 50%;
 }
 
@@ -157,7 +156,6 @@ svg.radial-progress circle.bar--animated {
   stroke-dashoffset: 282.6;
   stroke-width: 4px;
   stroke-linecap: round;
-  animation: progress 2s ease-out forwards;
 }
 
 svg.radial-progress text {
@@ -169,8 +167,6 @@ svg.radial-progress text {
   text-shadow: 0 0 5px #0000007a;
 }
 
-
-
 @keyframes progress {
   from {
     stroke-dashoffset: 282.6;
@@ -179,6 +175,11 @@ svg.radial-progress text {
     stroke-dashoffset: 0;
   }
 }
+
+.animated {
+  animation: progress 2s ease-out forwards;
+}
+
 
 /* bar graph */
 .bar-wrapper {
@@ -214,7 +215,6 @@ svg.radial-progress text {
   text-align: center;
 }
 
-/* Reduced opacity */
 .bar-info.performance {
   background: linear-gradient(rgba(253, 116, 115, 0.8), rgba(252, 104, 142, 0.8)), rgba(253, 116, 115, 0.8);
 }
@@ -243,91 +243,43 @@ svg.radial-progress text {
   --purple: #dc2430;
 }
 
-/* Card */
-.gold {
-  margin: 0;
+/* Cards */
+.animate-card {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
 
-.dollar-p {
-  margin: 0;
+.animate-card.slide-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* Slide in from the left */
+.SlideLeftCard {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
 
-.pricing-card {
-  width: 700px;
-  font-family: 'Open Sans';
-  display: flex;
-  margin: 75px auto;
-  box-shadow: 15px 30px 30px 0 rgba(220, 36, 48, 0.15);
+.SlideLeftCard.slide-in {
+  opacity: 1;
+  transform: translateX(0);
+} 
+
+/* Slide in from the right */
+.SlideRightCard {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
 
-.card-left {
-  text-align: center;
-  background: linear-gradient(65deg, var(--purple), var(--red));
-  color: whitesmoke;
-  width: 30%;
-  padding: 85px 20px;
-  border-radius: 6px 0 0 6px;
+.SlideRightCard.slide-in {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-.card-left h1 {
-  text-transform: uppercase;
-  margin-bottom: 2px;
-  font-size: 24px;
-}
-
-.card-left p {
-  font-size: 60px;
-}
-
-.dollar {
-  font-size: 24px;
-  position: relative;
-  top: -26px;
-}
-
-.card-right {
-  text-align: left;
-  /* background: #fff; */
-  width: 70%;
-  /* color: var(--red); */
-  border-radius: 0 6px 6px 0;
-  padding: 40px 40px;
-}
-
-.card-right h1 {
-  margin-bottom: 15px;
-  color: #292e31;
-  opacity: 0.9;
-}
-
-.card-right ul {
-  margin-bottom: 40px;
-}
-
-.card-right li {
-  padding-bottom: 6px;
-}
-
-.button {
-  text-decoration: none;
-  color: #fff;
-  background: #dc2430;
-  padding: 20px 80px;
-  border-radius: 100px;
-  transition: all 500ms ease;
-}
-
-.button:hover {
-  background: var(--purple);
-}
-
-@media (max-width: 780px){
+/* @media (max-width: 780px){
   .pricing-card{
 
     width: 100%;
@@ -341,4 +293,4 @@ ul {
     width: 10%;
     justify-self: center;
   }
-}
+} */

@@ -83,6 +83,33 @@ document.addEventListener('DOMContentLoaded', function() {
     dt_counterFlip();
 });
 
+//radial progress bar functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const svg = document.querySelector('.radial-progress');
+  const animatedCircle = svg.querySelector('.bar--animated');
+
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  function onScroll() {
+    if (isElementInViewport(svg)) {
+      animatedCircle.classList.add('animated');
+      window.removeEventListener('scroll', onScroll);
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // Check if the element is already in view
+});
+
+
 // Bar graph functionality
 document.addEventListener('DOMContentLoaded', function() {
     function skillSet() {
@@ -138,4 +165,31 @@ document.addEventListener('DOMContentLoaded', function() {
       observer.observe(targetElement);
     }
   });
+  
+  //card animation functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const elements = document.querySelectorAll('.animate-card, .SlideLeftCard, .SlideRightCard');
+  
+    function isElementInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+  
+    function onScroll() {
+      elements.forEach(element => {
+        if (isElementInViewport(element)) {
+          element.classList.add('slide-in');
+        }
+      });
+    }
+  
+    window.addEventListener('scroll', onScroll);
+    onScroll(); // Check if the elements are already in view
+  });
+  
   

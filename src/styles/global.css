@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 
+
 .time-line-container > div:last-child .education__time > .education__line {
   display: none;
 }
@@ -258,7 +259,7 @@ svg.radial-progress text {
 /* Slide in from the left */
 .SlideLeftCard {
   opacity: 0;
-  transform: translateX(-100px);
+  transform: translateX(-10px);
   transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
 
@@ -270,7 +271,7 @@ svg.radial-progress text {
 /* Slide in from the right */
 .SlideRightCard {
   opacity: 0;
-  transform: translateX(100px);
+  transform: translateX(30px);
   transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
 
@@ -279,18 +280,8 @@ svg.radial-progress text {
   transform: translateX(0);
 }
 
-/* @media (max-width: 780px){
-  .pricing-card{
-
-    width: 100%;
-    float: none;
+@media (max-width: 600px){
+  .animate-card{
+    display: hidden;
   }
-  .card-left, .card-right{
-    width: 70%;
-    justify-self: center;
-  }
-  .button{
-    width: 10%;
-    justify-self: center;
-  }
-} */
+}

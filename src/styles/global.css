@@ -115,6 +115,33 @@ body.no-scroll {
   overflow: hidden;
 }
 
+/* Shining Text  */
+.text12 {
+  color: black;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  font-size: 26px;
+  font-weight: bold;
+  background-position: 0;
+  background: linear-gradient(to right, #4d4d4d 0, #956afa 10%, #4d4d4d 20%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text12-animation 4s infinite linear;
+  animation-fill-mode: forwards;
+}
+@keyframes text12-animation {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 460px;
+  }
+  100% {
+    background-position: 0;
+  }
+}
+
 /* counter stats */
 .stats {
   padding: 10px 0 10px 0;
@@ -323,8 +350,4 @@ ul {
   transform: translateX(0);
 }
 
-@media (max-width: 600px){
-  .animate-card{
-    display: hidden;
-  }
-}
+

@@ -3,8 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug";
-import { Image } from "astro:assets";
-import seventy from "/src/assets/seventy.png"
+
 
 
 const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -160,37 +159,7 @@ const last_posts = posts.slice(0, 3);
 </section>
 </br>
 </br>
-
-<!-- <div class=" animate-card card card-side bg-base-200 shadow-xl shadow-primary">
-    <figure>
-      <Image src={seventy} alt="70% Off"
-      width={303}
-      height={300} />
-    </figure>
-  <div class="card-body">
-    <h2 class="card-title">Unbeatable Discount Now Available!</h2>
-    <p>70% off the original price.</p>
-    <ul>
-      <br>
-      <li>Includes up to 10 pages.</li>
- 
-     </br>
-      <li>advanced CMS integration.</li>
-  
-      </br>
-      <li>e-commerce setup</li>
-
-      </br>
-      <li> and performance optimization.</li>
-    </ul>
-
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Get Now</button>
-    </div>
-  </div>
-</div> -->
-</br>
-  <div class="card lg:card-side bg-base-100 shadow-xl">
+  <div class="animate-card card lg:card-side bg-base-100 shadow-xl">
     <figure>
       <div class="card-left">
         <h1 class='gold'>Gold</h1>
@@ -214,34 +183,6 @@ const last_posts = posts.slice(0, 3);
     </div>
   </div>
 </div>
-<!-- <div class="animate-card card bg-base-100 image-full w-96 shadow-xl">
-  <figure>
-    <Image src={seventy} alt="70% Off"
-    width={5000} 
-    />
-  </figure>
-  <div class="card-body">
-    <h2 class="card-title">Unbeatable Discount Now Available!</h2>
-    <p>70% off the original price.</p>
-    <ul>
-      <br>
-      <li>Includes up to 10 pages.</li>
- 
-     </br>
-      <li>advanced CMS integration.</li>
-  
-      </br>
-      <li>e-commerce setup</li>
-
-      </br>
-      <li> and performance optimization.</li>
-    </ul>
-
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Get Now</button>
-    </div>
-  </div>
-</div> -->
 </br>
 </br>
 </br>
